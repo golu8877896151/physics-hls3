@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Physics Lecture</title>
+</head>
+<body>
+  <h2>Physics Lecture 1</h2>
+  <video id="video" controls width="720"></video>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    if(Hls.isSupported()) {
+      var video = document.getElementById('video');
+      var hls = new Hls();
+      hls.loadSource('physics_lecture1.m3u8');
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED,function() {
+        video.play();
+      });
+    } else {
+      document.getElementById('video').src = 'physics_lecture1.m3u8';
+    }
+  </script>
+</body>
+</html>
